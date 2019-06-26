@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o frappe-kube
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: redissoc
+  name: redissoc
+spec:
+  ports:
+  - name: "12000"
+    port: 12000
+    targetPort: 12000
+  selector:
+    io.kompose.service: redis-socketio
+status:
+  loadBalancer: {}

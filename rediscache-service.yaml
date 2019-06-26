@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o frappe-kube
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: rediscache
+  name: rediscache
+spec:
+  ports:
+  - name: "13000"
+    port: 13000
+    targetPort: 13000
+  selector:
+    io.kompose.service: redis-cache
+status:
+  loadBalancer: {}

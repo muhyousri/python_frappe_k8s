@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o frappe-kube
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: redis-cache
+  name: redis-cache
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: redis-cache
+    spec:
+      containers:
+      - args:
+        - redis-server
+        - /etc/conf.d/redis_cache.conf
+        image: gcr.io/nana-direct-cloud/redis-cache
+        name: redis-cache
+        resources: {}
+      restartPolicy: Always
+status: {}

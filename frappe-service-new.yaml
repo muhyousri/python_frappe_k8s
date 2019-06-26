@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2019-06-25T10:49:41Z
+  generateName: frappe-
+  labels:
+    io.kompose.service: frappe
+  name: frappe-7ttlh
+  namespace: default
+  resourceVersion: "487860"
+  selfLink: /api/v1/namespaces/default/services/frappe-7ttlh
+  uid: ef545223-9736-11e9-9f54-42010a800259
+spec:
+  clusterIP: 10.118.10.75
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: 8000-to-8000-tcp
+    nodePort: 32526
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  - name: 9000-to-9000-tcp
+    nodePort: 30494
+    port: 9000
+    protocol: TCP
+    targetPort: 9000
+  - name: 6768-to-6768-tcp
+    nodePort: 32247
+    port: 6768
+    protocol: TCP
+    targetPort: 6768
+  - name: 80-to-80-tcp
+    nodePort: 31232
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    io.kompose.service: frappe
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
