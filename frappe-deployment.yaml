@@ -2,11 +2,8 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -o frappe-kube
     kompose.version: 1.18.0 (06a2e56)
   creationTimestamp: null
-  labels:
-    io.kompose.service: frappe
   name: frappe
 spec:
   replicas: 1
@@ -15,8 +12,6 @@ spec:
   template:
     metadata:
       creationTimestamp: null
-      labels:
-        io.kompose.service: frappe
     spec:
       containers:
       - image: gcr.io/nana-direct-cloud/frappe-run:latest
