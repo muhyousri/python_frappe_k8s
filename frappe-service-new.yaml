@@ -3,8 +3,6 @@ kind: Service
 metadata:
   creationTimestamp: 2019-06-25T10:49:41Z
   generateName: frappe-
-  labels:
-    io.kompose.service: frappe
   name: frappe-7ttlh
   namespace: default
   resourceVersion: "487860"
